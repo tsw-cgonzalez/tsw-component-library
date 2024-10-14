@@ -1,6 +1,45 @@
 $grayscale-400: #ccc;
+$grayscale-900: #1c1c1c;
+// fill: var(--tdds-color-brand-grayscale-600) not active;
+// fill: var(--tdds-color-brand-grayscale-900) active;
 
-button {
-    color: #ccc;
-    background: green;
+.tsw-hidden {
+    clip: rect(1px, 1px, 1px, 1px);
+    border-width: 0;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    white-space: nowrap;
+    width: 1px;
+}
+
+.tsw-incrementor--counter-control {
+    display: inline-flex;
+    border: 1px solid $grayscale-400;
+    border-radius: 22px;
+    justify-content: center;
+    align-items: center;
+    line-height: 1em;
+    font-size: 1rem;
+
+    button {
+        color: #ccc;
+        background: transparent;
+        border: none;
+        padding: 12px 14px;
+
+        &[aria-disabled=true]  {
+            cursor: not-allowed;
+        }
+
+        &[aria-disabled=false]  {
+            cursor: pointer;
+        }
+
+        & > svg {
+            pointer-events: none;
+        }
+    }
 }

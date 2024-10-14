@@ -1,12 +1,19 @@
 import { sync } from "glob"
+import { defineConfig } from "vite"
 
-export default {
+
+export default defineConfig({
     root: "./src/pages",
+    server: {
+        watch: {
+            usePolling: true
+        }
+    },
     build: {
         outDir: "../dist",
         emptyOutDir: true,
         rollupOptions: {
-            input: sync("./src/pages/**/*.html")
+            input: sync("./src/pages/**/**/*.html")
         }
     }
-}
+})
