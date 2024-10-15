@@ -5,15 +5,22 @@ import { defineConfig } from "vite"
 export default defineConfig({
     root: "./src/pages",
     server: {
-        watch: {
-            usePolling: true
+      base: '/pages',
+      watch: {
+        usePolling: true
         }
     },
     build: {
+        cssCodeSplit: true,
         outDir: "../dist",
         emptyOutDir: true,
         rollupOptions: {
-            input: sync("./src/pages/**/**/*.html")
+            input: sync("./src/pages/**/**/*.html"),
+            output: {
+                manualChunks: {
+
+                }
+            }
         }
     }
 })
